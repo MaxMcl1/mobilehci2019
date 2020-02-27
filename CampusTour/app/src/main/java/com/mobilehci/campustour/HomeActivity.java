@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.provider.MediaStore;
 import android.view.View;
@@ -24,8 +23,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
 
 public class HomeActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -54,8 +51,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
                         ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
                     }
                 } else {
-                    // permission has already been granted
-                    startCamera();
+                    startCamera(); // permission has already been granted
                 }
             }
         });
@@ -67,9 +63,17 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_tools)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // Set to start with fragment
+        /*MapsFragment fragment = new MapsFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();*/
     }
 
     @Override
@@ -83,10 +87,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
         switch (requestCode) {
             case PERMISSION_REQUEST_CAMERA: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission granted, open camera
-                    startCamera();
-                } else {
-                    // permission denied disable camera functionality
+                    startCamera(); // permission granted, open camera
                 }
                 return;
             }

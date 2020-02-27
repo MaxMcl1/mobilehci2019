@@ -1,29 +1,42 @@
 package com.mobilehci.campustour.ui.home;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+public class HomeFragment extends SupportMapFragment implements OnMapReadyCallback {
 
-import com.mobilehci.campustour.R;
+    GoogleMap mGoogleMap;
 
-public class HomeFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
 
-    private HomeViewModel homeViewModel;
+        setUpMapIfNeeded();
+    }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+    private void setUpMapIfNeeded() {
+
+        if (mGoogleMap == null) {
+            getMapAsync(this);
+        }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap)
+    {
+        mGoogleMap=googleMap;
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+    }
+
+    /*private HomeViewModel homeViewModel;
+
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
+
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -31,5 +44,5 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
-    }
+    }*/
 }
