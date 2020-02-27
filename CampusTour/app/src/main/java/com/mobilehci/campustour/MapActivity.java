@@ -23,8 +23,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
 
@@ -42,19 +41,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng boydOrr = new LatLng(55.8736, -4.2926);
-        LatLng stAndrews = new LatLng(55.8715, -4.2794);
-        LatLng kelvin = new LatLng(55.8715, -4.2919);
-        LatLng mainBuilding = new LatLng(55.8715, -4.2885);
-        LatLng library = new LatLng(55.8734, -4.2889);
+        for (Building building : Building.values()) {
+            if (building.isVisited()) {
+                mMap.addMarker(new MarkerOptions().position(new LatLng(building.getLatitude(), building.getLongitude())).title(building.getName()));
+            }
+        }
 
-        mMap.addMarker(new MarkerOptions().position(stAndrews).title("St Andrews Building"));
-        mMap.addMarker(new MarkerOptions().position(kelvin).title("Kelvin Building"));
-        mMap.addMarker(new MarkerOptions().position(mainBuilding).title("Main Building"));
-        mMap.addMarker(new MarkerOptions().position(library).title("Library"));
-        mMap.addMarker(new MarkerOptions().position(boydOrr).title("Boyd Orr"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(boydOrr));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(boydOrr, 15.0f));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(boydOrr));
+        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(boydOrr, 15.0f));
     }
 }

@@ -61,4 +61,28 @@ public enum Building {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public String[] getFacilities() {
+        return facilities;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
 }
