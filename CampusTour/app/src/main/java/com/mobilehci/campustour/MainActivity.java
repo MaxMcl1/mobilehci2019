@@ -52,6 +52,16 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
                 }
             }
         });
+
+        Button location = findViewById(R.id.locationDataBtn);
+        location.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v){
+                Intent LocInfoIntent = new Intent(MainActivity.this, LocationInformationActivity.class);
+                startActivity(LocInfoIntent);
+            }
+        });
     }
 
     @Override
