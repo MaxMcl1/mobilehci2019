@@ -1,4 +1,4 @@
-package com.mobilehci.campustour.ui.tools;
+package com.mobilehci.campustour.ui.my;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.mobilehci.campustour.R;
 
-public class ToolsFragment extends Fragment {
+public class MyFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private MyViewModel myViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        myViewModel =
+                ViewModelProviders.of(this).get(MyViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_my, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        myViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -1,4 +1,4 @@
-package com.mobilehci.campustour.ui.slideshow;
+package com.mobilehci.campustour.ui.all;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.mobilehci.campustour.R;
 
-public class SlideshowFragment extends Fragment {
+public class AllFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AllViewModel allViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        allViewModel =
+                ViewModelProviders.of(this).get(AllViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_all, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        allViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

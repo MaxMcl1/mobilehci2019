@@ -12,20 +12,20 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.mobilehci.campustour.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_my"
+        android:name="com.mobilehci.campustour.ui.my.MyFragment"
+        android:label="@string/menu_my"
+        tools:layout="@layout/fragment_my" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.mobilehci.campustour.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_all"
+        android:name="com.mobilehci.campustour.ui.all.AllFragment"
+        android:label="@string/menu_all"
+        tools:layout="@layout/fragment_all" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.mobilehci.campustour.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_settings"
+        android:name="com.mobilehci.campustour.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

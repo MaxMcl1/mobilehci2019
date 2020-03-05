@@ -8,8 +8,8 @@
     <string name="nav_header_subtitle">Tours around the University of Glasgow</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Buildings</string>
-    <string name="menu_slideshow">Information</string>
-    <string name="menu_tools">Settings</string>
+    <string name="menu_home">Tour</string>
+    <string name="menu_my">My Buildings</string>
+    <string name="menu_all">All Buildings</string>
+    <string name="menu_settings">Settings</string>
 </resources>
