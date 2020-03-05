@@ -11,7 +11,8 @@ public enum Building {
             false,
             new String[] {"Disabled Access", "Wireless Access", "Toilets", "Cafe"},
             55.8736,
-            -4.2926
+            -4.2926,
+                R.drawable.boydorr
         ),
         ST_ANDREWS(
             "St Andrews Building",
@@ -19,7 +20,8 @@ public enum Building {
             false,
             new String[] {"Disabled Access", "Wireless Access", "Toilets"},
             55.8715,
-            4.2794
+            4.2794,
+                R.drawable.standrews
         ),
         KELVIN(
             "Kelvin Building",
@@ -27,7 +29,8 @@ public enum Building {
             false,
             new String[] {"Disabled Access", "Wireless Access", "Toilets"},
             55.8715,
-            -4.2917
+            -4.2917,
+                R.drawable.kelvin
         ),
         MAIN(
             "Main Building (Gilbert Scott)",
@@ -35,7 +38,8 @@ public enum Building {
             false,
             new String[] {"Disabled Access", "Wireless Access", "Toilets", "Cafe", "Gift Shop"},
             55.8642,
-            -4.2518
+            -4.2518,
+                R.drawable.main
         ),
         LIBRARY(
             "Library",
@@ -43,7 +47,8 @@ public enum Building {
             false,
             new String[] {"Disabled Access", "Wireless Access", "Toilets", "Cafe"},
             55.8734,
-            -4.2889
+            -4.2889,
+                R.drawable.library
         );
 
     private String name;
@@ -52,14 +57,17 @@ public enum Building {
     private String[] facilities;
     private double latitude;
     private double longitude;
+    private int image;
 
-    Building(String name, String description, boolean visited, String[] facilities, double latitude, double longitude) {
+
+    Building(String name, String description, boolean visited, String[] facilities, double latitude, double longitude, int image) {
         this.name = name;
         this.description = description;
         this.visited = visited;
         this.facilities = facilities;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.image = image;
     }
 
     public String getName() {
@@ -85,4 +93,6 @@ public enum Building {
     public double getLongitude() {
         return longitude;
     }
+
+    public int getImage(){ return  image;}
 }
