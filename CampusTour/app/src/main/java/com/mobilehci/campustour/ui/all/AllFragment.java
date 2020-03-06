@@ -6,14 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.mobilehci.campustour.Building;
+import com.mobilehci.campustour.ListAdapter;
 import com.mobilehci.campustour.LocationInformationActivity;
 import com.mobilehci.campustour.R;
 
@@ -25,10 +24,17 @@ public class AllFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_all, container, false);
 
-        List<String> buildings = new ArrayList<>();
-        for (Building b : Building.values()) buildings.add(b.getName());
+        List<String> names = new ArrayList<>();
+        List<String> descriptions = new ArrayList<>();
+        List<Integer> images = new ArrayList<>();
 
-        ArrayAdapter<String> allBuildingsAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, buildings);
+        for (Building b : Building.values()) {
+            names.add(b.getName());
+            descriptions.add(b.getDescription());
+            images.add(b.getImage());
+        }
+
+        ListAdapter allBuildingsAdapter = new ListAdapter(getActivity(), names, descriptions, images);
 
         ListView listView = root.findViewById(R.id.list_all_buildings);
         listView.setAdapter(allBuildingsAdapter);
