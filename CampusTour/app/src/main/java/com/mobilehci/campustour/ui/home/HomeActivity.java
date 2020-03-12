@@ -1,8 +1,12 @@
-package com.mobilehci.campustour;
+package com.mobilehci.campustour.ui.home;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,17 +16,23 @@ import android.view.View;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.mobilehci.campustour.Building;
+import com.mobilehci.campustour.LocationInformationActivity;
+import com.mobilehci.campustour.R;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
@@ -34,6 +44,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -67,13 +78,6 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        // Set to start with fragment
-        /*MapsFragment fragment = new MapsFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();*/
     }
 
     @Override
@@ -99,6 +103,41 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            Intent intent = new Intent(this, LocationInformationActivity.class);
+
+            int size = Building.values().length;
+            int random = new Random().nextInt(size);
+
+            Building building = Building.values()[random];
+            if (!building.isVisited()) building.setVisited(true);
+
+            /*LocationInformationActivity nextFragment = new LocationInformationActivity();
+
+            getSupportFragmentManager().beginTransaction()
+                    //.replace(R.id.nav_host_fragment, nextFragment)
+                    .add(R.id.fragment_container, nextFragment, "nextFragment")
+                    .addToBackStack(null)
+                    .commit();*/
+
+            /*FragmentManager manager = getFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.container, nextFragment,"nextFragment");
+            transaction.addToBackStack(null);
+            transaction.commit();*/
+
+            Bundle b = new Bundle();
+            b.putInt("key", random);
+            //nextFragment.setArguments(b);
+            intent.putExtras(b);
+
+            startActivity(intent);
         }
     }
 }

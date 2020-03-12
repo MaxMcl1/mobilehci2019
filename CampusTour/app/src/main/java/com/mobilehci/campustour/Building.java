@@ -91,4 +91,8 @@ public enum Building {
     }
 
     public int getImage(){ return  image;}
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
 }

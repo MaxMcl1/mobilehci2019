@@ -1,5 +1,6 @@
 package com.mobilehci.campustour.ui.home;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -33,5 +34,9 @@ public class HomeFragment extends SupportMapFragment implements OnMapReadyCallba
                 mMap.addMarker(new MarkerOptions().position(new LatLng(building.getLatitude(), building.getLongitude())).title(building.getName()));
             }
         }
+
+        Building b = Building.BOYD_ORR;
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(b.getLatitude(), b.getLongitude())));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(b.getLatitude(), b.getLongitude()), 15.0f));
     }
 }
