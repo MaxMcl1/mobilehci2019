@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Campus Tour</string>
     <string name="title_activity_map">Map</string>
+    <string name="title_activity_home">Campus Tour</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Campus Tour</string>
+    <string name="nav_header_subtitle">Tours around the University of Glasgow</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Tour</string>
+    <string name="menu_my">My Buildings</string>
+    <string name="menu_all">All Buildings</string>
+    <string name="menu_settings">Settings</string>
 </resources>
