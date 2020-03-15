@@ -67,7 +67,6 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_my, R.id.nav_all, R.id.nav_settings)
                 .setDrawerLayout(drawer)
                 .build();
 
