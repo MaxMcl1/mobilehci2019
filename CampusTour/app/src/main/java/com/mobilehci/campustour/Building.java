@@ -34,8 +34,8 @@ public enum Building {
         "The new buildings were designed by George Gilbert Scott and erected around two quadrangles on top of the hill which had been previously occupied by Gilmorehill House. The new University buildings were inaugurated on 7 November 1870. The Bute and Randolph Halls were added 1878-1884 (designed by George Gilbert Scott, and completed after his death by J Oldrid Scott and Edwin Morgan), and the distinctive tower and spire was designed by J Oldrid Scott and erected 1887-1891.",
         false,
         new int[] {R.drawable.ic_accessible, R.drawable.ic_wifi, R.drawable.ic_wc, R.drawable.ic_local_cafe, R.drawable.ic_card_giftcard},
-        55.8698,
-        -4.2858,
+        55.8721,
+        -4.2882,
             R.drawable.main
     ),
     LIBRARY(
