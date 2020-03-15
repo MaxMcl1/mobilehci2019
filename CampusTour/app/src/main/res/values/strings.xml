@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Campus Tour</string>
+    <string name="app_name">QR Tou-R</string>
     <string name="title_activity_map">Map</string>
-    <string name="title_activity_home">Campus Tour</string>
+    <string name="title_activity_home">QR Tou-R</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Campus Tour</string>
     <string name="nav_header_subtitle">Tours around the University of Glasgow</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Tour</string>
+    <string name="menu_home">QR Tou-R</string>
     <string name="menu_my">My Buildings</string>
     <string name="menu_all">All Buildings</string>
     <string name="menu_friends">Friends</string>
@@ -16,19 +16,20 @@
     <string name="title_activity_settings">Settings</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header">Appearance</string>
+    <string name="sync_header">Features</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="signature_title">Dark Mode</string>
+    <string name="reply_title">Text Size</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
+    <string name="sync_title">Friends</string>
+    <string name="attachment_title">Allow friends to add me</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off">You can\'t be added when this is disabled</string>
+
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
