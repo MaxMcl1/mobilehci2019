@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationInformationActivity" >
+    tools:context=".LocationInformationActivity"
+    android:id="@+id/LocationLayout">
 
     <ImageView
         android:id="@+id/LocationImage"
-        android:layout_width="382dp"
-        android:layout_height="233dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
         android:contentDescription="Location Image"
         app:layout_constraintBottom_toTopOf="@+id/LocationName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.39"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
 
     <TextView
         android:id="@+id/LocationName"
-        android:layout_width="380dp"
-        android:layout_height="68dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:gravity="left"
         android:text="Location Name"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LocationImage" />
 
     <TextView
-        android:id="@+id/VisitedText"
-        android:layout_width="74dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="212dp"
-        android:text="Visited"
-        app:layout_constraintEnd_toStartOf="@+id/FavouriteButton"
-        app:layout_constraintHorizontal_bias="0.633"
+        android:id="@+id/Location_Information"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Building Information"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Location_Information" />
+        app:layout_constraintTop_toBottomOf="@+id/LocationName" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/FavouriteButton"
+        android:id="@+id/CameraButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -60,20 +66,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
-    <TextView
-        android:id="@+id/Location_Information"
+    <CheckedTextView
+        android:id="@+id/Visited_Checked"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="291dp"
-        android:text="Building Information"
-        app:layout_constraintBottom_toTopOf="@+id/VisitedText"
+        android:layout_marginEnd="250dp"
+        android:layout_marginRight="250dp"
+        android:checked="true"
+        android:text="Building Visited:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LocationName" />
+        app:layout_constraintTop_toBottomOf="@+id/Location_Information" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

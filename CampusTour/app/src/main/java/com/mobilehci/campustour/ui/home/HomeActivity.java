@@ -2,21 +2,19 @@ package com.mobilehci.campustour.ui.home;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -36,8 +34,8 @@ import java.util.Random;
 
 public class HomeActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
-    private static final int PERMISSION_REQUEST_CAMERA = 0;
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    public static final int PERMISSION_REQUEST_CAMERA = 0;
+    public static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -54,8 +52,6 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
                 if (ContextCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     // permission is not granted
                     if (!ActivityCompat.shouldShowRequestPermissionRationale(HomeActivity.this, Manifest.permission.CAMERA)) {
@@ -118,26 +114,14 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.On
             Building building = Building.values()[random];
             if (!building.isVisited()) building.setVisited(true);
 
-            /*LocationInformationActivity nextFragment = new LocationInformationActivity();
-
-            getSupportFragmentManager().beginTransaction()
-                    //.replace(R.id.nav_host_fragment, nextFragment)
-                    .add(R.id.fragment_container, nextFragment, "nextFragment")
-                    .addToBackStack(null)
-                    .commit();*/
-
-            /*FragmentManager manager = getFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.container, nextFragment,"nextFragment");
-            transaction.addToBackStack(null);
-            transaction.commit();*/
-
             Bundle b = new Bundle();
             b.putInt("key", random);
-            //nextFragment.setArguments(b);
             intent.putExtras(b);
 
             startActivity(intent);
+
+            Toast toast = Toast.makeText(getApplicationContext(), building.getName() + " Visited!", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 }

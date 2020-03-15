@@ -1,5 +1,7 @@
 package com.mobilehci.campustour.ui.home;
 
+import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,6 +24,9 @@ public class HomeFragment extends SupportMapFragment implements OnMapReadyCallba
     private void setUpMapIfNeeded() {
         if (mMap == null) {
             getMapAsync(this);
+
+            Toast toast = Toast.makeText(getContext(), "Scan a building QR code", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 

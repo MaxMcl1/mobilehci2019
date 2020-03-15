@@ -1,6 +1,7 @@
 package com.mobilehci.campustour.ui.my;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -23,10 +25,10 @@ import java.util.List;
 
 public class MyFragment extends Fragment {
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_my, container, false);
 
-        List<String> names = new ArrayList<>();
+        final List<String> names = new ArrayList<>();
         List<String> descriptions = new ArrayList<>();
         List<Integer> images = new ArrayList<>();
 
@@ -41,7 +43,7 @@ public class MyFragment extends Fragment {
         if (names.size() > 0) {
             ListAdapter allBuildingsAdapter = new ListAdapter(getActivity(), names, descriptions, images);
 
-            ListView listView = root.findViewById(R.id.list_my_buildings);
+            final ListView listView = root.findViewById(R.id.list_my_buildings);
             listView.setAdapter(allBuildingsAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -49,8 +51,11 @@ public class MyFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(getActivity(), LocationInformationActivity.class);
 
+                    String selected = ((TextView) view.findViewById(R.id.buildingRowName)).getText().toString().toUpperCase().replaceAll(" ", "_");
+                    selected = selected.replaceAll("_BUILDING", "");
+
                     Bundle b = new Bundle();
-                    b.putInt("key", position); //Your id
+                    b.putInt("key", Building.valueOf(selected).ordinal()); //Your id
                     intent.putExtras(b); //Put your id to your next Intent
 
                     startActivity(intent);
