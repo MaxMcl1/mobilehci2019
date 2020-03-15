@@ -37,7 +37,11 @@ public class ListAdapter extends ArrayAdapter {
         ImageView image = (ImageView) row.findViewById(R.id.buildingRowImage);
 
         name.setText(names.get(position));
-        description.setText(descriptions.get(position).substring(0, 140) + "...");
+        if (descriptions.get(position).length() > 141) {
+            description.setText(descriptions.get(position).substring(0, 140) + "...");
+        } else {
+            description.setText(descriptions.get(position));
+        }
         image.setImageResource(images.get(position));
 
         return  row;

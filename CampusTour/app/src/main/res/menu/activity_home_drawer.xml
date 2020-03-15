@@ -10,12 +10,22 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_my"
-            android:icon="@drawable/ic_menu_person"
+            android:icon="@drawable/ic_menu_face"
             android:title="@string/menu_my" />
         <item
             android:id="@+id/nav_all"
             android:icon="@drawable/ic_menu_building"
             android:title="@string/menu_all" />
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/ic_menu_group"
+            android:title="@string/menu_friends" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
